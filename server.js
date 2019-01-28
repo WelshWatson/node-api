@@ -3,23 +3,24 @@ var bodyParser 		= require('body-parser');
 var app 			= express();
 var person        	= require('./app/routes/person');
 
-var port = process.env.PORT || 8000;
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-app.use('/api', router);
+
+var port = process.env.PORT || 8000;
 var router = express.Router();
+
+// Route all person urls here
 router.use('/person', person);
 
+// Default route
 router.get('/', function(req, res) {
-	res.json({ message: 'Yay it worked!' });
+	res.json({ message: 'Default route!' });
 });
 
-router.get('/test', function(req, res) {
-	res.json({ response: 'This is the test endpoint response' });
-});
-
-
-
+// Listen to port
 app.listen(port, () => {
 	console.log('API is live on port ' + port);
 });
+
+// Append /api on the url
+app.use('/api', router);
