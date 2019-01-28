@@ -4,8 +4,12 @@
   "description": "A simple node api",
   "main": "server.js",
   "scripts": {
+    "start": "nodemon server.js",
     "dev": "nodemon server.js --inspect",
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "engines": {
+	  "node": "10.15.0"
   },
   "author": "Owen Watson",
   "license": "ISC",
