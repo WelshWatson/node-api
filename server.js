@@ -6,7 +6,7 @@ var person        	= require('./app/routes/person');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-var port = process.env.PORT || 8000;
+var port = 8081;
 var router = express.Router();
 
 // Route all person urls here
